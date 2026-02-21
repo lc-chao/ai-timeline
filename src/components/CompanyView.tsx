@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import type { Event } from '../types'
 
 const companyColors: Record<string, string> = {
@@ -19,7 +20,46 @@ const typeLabels: Record<string, string> = {
   model: '🤖 模型', product: '🚀 产品', funding: '💰 融资', policy: '📋 政策', milestone: '⭐ 里程碑'
 }
 
+function CompanyEventRow({ e }: { e: Event }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div
+      onClick={() => setOpen(v => !v)}
+      className="px-5 py-3 hover:bg-gray-800/40 transition-colors cursor-pointer"
+    >
+      <div className="flex items-center gap-2 mb-1">
+        <span className="text-gray-600 text-xs font-mono">{e.date}</span>
+        <span className="text-gray-600 text-xs">{typeLabels[e.type]}</span>
+        {e.importance === 'high' && <span className="text-yellow-400 text-xs">★</span>}
+      </div>
+      <p className="text-white text-sm font-medium">{e.title}</p>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.p
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="text-gray-400 text-xs mt-1 leading-relaxed overflow-hidden"
+          >
+            {e.description}
+          </motion.p>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 export function CompanyView({ events }: { events: Event[] }) {
+  if (events.length === 0) {
+    return (
+      <div className="text-center py-24">
+        <div className="text-4xl mb-4">🔍</div>
+        <p className="text-gray-400 text-sm mb-2">没有找到匹配的事件</p>
+        <p className="text-gray-600 text-xs">尝试调整筛选条件，或按 ESC 清除筛选</p>
+      </div>
+    )
+  }
+
   const grouped: Record<string, Event[]> = {}
   for (const e of events) {
     if (!grouped[e.company]) grouped[e.company] = []
@@ -45,15 +85,7 @@ export function CompanyView({ events }: { events: Event[] }) {
             </div>
             <div className="divide-y divide-gray-800/60">
               {evts.sort((a, b) => b.date.localeCompare(a.date)).map(e => (
-                <div key={e.id} className="px-5 py-3 hover:bg-gray-800/40 transition-colors">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-gray-600 text-xs font-mono">{e.date}</span>
-                    <span className="text-gray-600 text-xs">{typeLabels[e.type]}</span>
-                    {e.importance === 'high' && <span className="text-yellow-400 text-xs">★</span>}
-                  </div>
-                  <p className="text-white text-sm font-medium">{e.title}</p>
-                  <p className="text-gray-400 text-xs mt-0.5 leading-relaxed">{e.description}</p>
-                </div>
+                <CompanyEventRow key={e.id} e={e} />
               ))}
             </div>
           </motion.div>

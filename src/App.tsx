@@ -1,5 +1,5 @@
-import { useState, useMemo } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useMemo, useEffect, useCallback } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { events } from './data/events'
 import { Timeline } from './components/Timeline'
 import { CompanyView } from './components/CompanyView'
@@ -10,6 +10,7 @@ export default function App() {
   const [selectedCompany, setSelectedCompany] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
   const [view, setView] = useState<'timeline' | 'company'>('timeline')
+  const [showTop, setShowTop] = useState(false)
 
   const filtered = useMemo(() => events
     .filter(e => selectedCompany === 'all' || e.company === selectedCompany)
@@ -17,6 +18,21 @@ export default function App() {
     .sort((a, b) => b.date.localeCompare(a.date)),
     [selectedCompany, selectedType]
   )
+
+  // 筛选变化时滚动回顶部
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [selectedCompany, selectedType])
+
+  // 监听滚动，超过500px显示回顶按钮
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 500)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const handleCompanyChange = useCallback((c: string) => setSelectedCompany(c), [])
+  const handleTypeChange = useCallback((t: string) => setSelectedType(t), [])
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
@@ -46,8 +62,8 @@ export default function App() {
           selectedCompany={selectedCompany}
           selectedType={selectedType}
           view={view}
-          onCompanyChange={setSelectedCompany}
-          onTypeChange={setSelectedType}
+          onCompanyChange={handleCompanyChange}
+          onTypeChange={handleTypeChange}
           onViewChange={setView}
         />
 
@@ -62,6 +78,21 @@ export default function App() {
           : <CompanyView events={filtered} />
         }
       </div>
+
+      {/* 回顶按钮 */}
+      <AnimatePresence>
+        {showTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-8 right-8 w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-500/50 text-cyan-400 flex items-center justify-center hover:bg-cyan-500/30 transition-colors z-30"
+          >
+            ↑
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
