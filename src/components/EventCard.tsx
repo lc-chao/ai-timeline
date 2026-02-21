@@ -38,39 +38,49 @@ export function EventCard({ event, index }: { event: Event; index: number }) {
   const dot = companyDots[event.company] ?? 'bg-gray-500'
 
   return (
-    <div className={`relative flex mb-8 items-start ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
-      {/* 卡片 */}
-      <div className="w-[46%]">
-        <div className={`group relative bg-gray-900/60 border rounded-xl p-5 transition-all duration-300
-          ${event.importance === 'high'
-            ? 'border-gray-700 hover:border-cyan-500/60 hover:shadow-lg hover:shadow-cyan-500/10'
-            : 'border-gray-800 hover:border-gray-600'
-          }`}>
-          {/* 重要事件左侧高亮条 */}
-          {event.importance === 'high' && (
-            <div className={`absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b ${color}`} />
-          )}
-          <div className="flex items-center gap-2 mb-2.5 flex-wrap">
-            <span className={`text-xs px-2.5 py-0.5 rounded-full bg-gradient-to-r ${color} text-white font-medium`}>
-              {event.company}
-            </span>
-            <span className="text-xs text-gray-500 px-2 py-0.5 rounded-full border border-gray-700/80">
-              {typeLabels[event.type]}
-            </span>
+    <>
+      {/* 桌面端：左右交替 */}
+      <div className={`relative hidden md:flex mb-8 items-start ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
+        <div className="w-[46%]">
+          <div className={`relative bg-gray-900/60 border rounded-xl p-5 transition-all duration-300
+            ${event.importance === 'high'
+              ? 'border-gray-700 hover:border-cyan-500/60 hover:shadow-lg hover:shadow-cyan-500/10'
+              : 'border-gray-800 hover:border-gray-600'}`}>
+            {event.importance === 'high' && (
+              <div className={`absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b ${color}`} />
+            )}
+            <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+              <span className={`text-xs px-2.5 py-0.5 rounded-full bg-gradient-to-r ${color} text-white font-medium`}>{event.company}</span>
+              <span className="text-xs text-gray-500 px-2 py-0.5 rounded-full border border-gray-700/80">{typeLabels[event.type]}</span>
+            </div>
+            <h3 className="text-white font-semibold text-sm mb-1.5">{event.title}</h3>
+            <p className="text-gray-400 text-xs leading-relaxed">{event.description}</p>
+            <p className="text-gray-600 text-xs mt-3 font-mono">{event.date}</p>
           </div>
-          <h3 className="text-white font-semibold text-sm mb-1.5 leading-snug">{event.title}</h3>
+        </div>
+        <div className="w-[8%] flex justify-center pt-5">
+          <div className={`w-3 h-3 rounded-full border-2 border-gray-950 z-10 ${dot}`} />
+        </div>
+        <div className="w-[46%]" />
+      </div>
+
+      {/* 移动端：单列 */}
+      <div className="md:hidden flex mb-5 items-start gap-3">
+        <div className="flex flex-col items-center pt-1.5 shrink-0">
+          <div className={`w-2.5 h-2.5 rounded-full ${dot}`} />
+          <div className="w-px flex-1 bg-gray-800 mt-1" />
+        </div>
+        <div className={`flex-1 bg-gray-900/60 border rounded-xl p-4 mb-1
+          ${event.importance === 'high' ? 'border-gray-700' : 'border-gray-800'}`}>
+          <div className="flex items-center gap-2 mb-2 flex-wrap">
+            <span className={`text-xs px-2 py-0.5 rounded-full bg-gradient-to-r ${color} text-white font-medium`}>{event.company}</span>
+            <span className="text-xs text-gray-500">{typeLabels[event.type]}</span>
+          </div>
+          <h3 className="text-white font-semibold text-sm mb-1">{event.title}</h3>
           <p className="text-gray-400 text-xs leading-relaxed">{event.description}</p>
-          <p className="text-gray-600 text-xs mt-3 font-mono">{event.date}</p>
+          <p className="text-gray-600 text-xs mt-2 font-mono">{event.date}</p>
         </div>
       </div>
-
-      {/* 中轴节点 */}
-      <div className="w-[8%] flex justify-center pt-5">
-        <div className={`w-3 h-3 rounded-full border-2 border-gray-950 z-10 transition-transform duration-300 ${dot}`} />
-      </div>
-
-      {/* 占位 */}
-      <div className="w-[46%]" />
-    </div>
+    </>
   )
 }

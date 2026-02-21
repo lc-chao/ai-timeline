@@ -2,11 +2,14 @@ import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { events } from './data/events'
 import { Timeline } from './components/Timeline'
+import { CompanyView } from './components/CompanyView'
 import { FilterBar } from './components/FilterBar'
+import { Stats } from './components/Stats'
 
 export default function App() {
   const [selectedCompany, setSelectedCompany] = useState('all')
   const [selectedType, setSelectedType] = useState('all')
+  const [view, setView] = useState<'timeline' | 'company'>('timeline')
 
   const filtered = useMemo(() => events
     .filter(e => selectedCompany === 'all' || e.company === selectedCompany)
@@ -17,14 +20,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white">
-      {/* 背景 */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(6,182,212,0.08),transparent)]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px]" />
       </div>
 
       <div className="relative max-w-5xl mx-auto px-6 py-16">
-        {/* 标题 */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -41,26 +42,25 @@ export default function App() {
           <p className="text-gray-500 text-sm">2022年至今 · AI领域重大事件全记录 · {events.length} 个事件</p>
         </motion.div>
 
-        {/* 筛选栏 */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3 }}
-        >
-          <FilterBar
-            selectedCompany={selectedCompany}
-            selectedType={selectedType}
-            onCompanyChange={setSelectedCompany}
-            onTypeChange={setSelectedType}
-          />
-        </motion.div>
+        <FilterBar
+          selectedCompany={selectedCompany}
+          selectedType={selectedType}
+          view={view}
+          onCompanyChange={setSelectedCompany}
+          onTypeChange={setSelectedType}
+          onViewChange={setView}
+        />
 
-        {/* 结果数 */}
+        <Stats events={events} />
+
         <div className="text-gray-600 text-xs font-mono mb-8">
           显示 {filtered.length} / {events.length} 条事件
         </div>
 
-        <Timeline events={filtered} />
+        {view === 'timeline'
+          ? <Timeline events={filtered} />
+          : <CompanyView events={filtered} />
+        }
       </div>
     </div>
   )
