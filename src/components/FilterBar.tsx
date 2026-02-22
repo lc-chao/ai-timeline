@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-const YEARS = ['2022', '2023', '2024', '2025', '2026']
+const YEARS = ['2026', '2025', '2024', '2023', '2022']
 const COMPANIES = ['OpenAI','Anthropic','Google DeepMind','Meta AI','Mistral','xAI','智谱AI','MiniMax','Kimi','阿里千问','字节豆包','OpenClaw']
 
 export function FilterBar({
