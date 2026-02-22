@@ -1,113 +1,110 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import type { Event } from '../types'
 
-const companyColors: Record<string, string> = {
-  'OpenAI': 'from-green-500 to-emerald-600',
-  'Anthropic': 'from-orange-500 to-amber-600',
-  'Google DeepMind': 'from-blue-500 to-cyan-600',
-  'Meta AI': 'from-blue-600 to-indigo-600',
-  'Mistral': 'from-purple-500 to-violet-600',
-  'xAI': 'from-gray-400 to-gray-500',
-  '智谱AI': 'from-red-500 to-rose-600',
-  'MiniMax': 'from-pink-500 to-fuchsia-600',
-  'Kimi': 'from-cyan-500 to-sky-600',
-  '阿里千问': 'from-orange-400 to-yellow-500',
-  '字节豆包': 'from-teal-500 to-green-600',
-}
-
-const companyDots: Record<string, string> = {
-  'OpenAI': 'bg-emerald-500',
-  'Anthropic': 'bg-orange-500',
-  'Google DeepMind': 'bg-cyan-500',
-  'Meta AI': 'bg-indigo-500',
-  'Mistral': 'bg-violet-500',
-  'xAI': 'bg-gray-400',
-  '智谱AI': 'bg-rose-500',
-  'MiniMax': 'bg-fuchsia-500',
-  'Kimi': 'bg-sky-500',
-  '阿里千问': 'bg-yellow-500',
-  '字节豆包': 'bg-teal-500',
+// 每个公司对应的色标（拟物风格用暖色调徽章）
+const companyColors: Record<string, { bg: string; text: string }> = {
+  'OpenAI':         { bg: 'linear-gradient(145deg, #4a7c59, #2d5a3d)', text: '#fff' },
+  'Anthropic':      { bg: 'linear-gradient(145deg, #c47a3a, #8b4e1a)', text: '#fff' },
+  'Google DeepMind':{ bg: 'linear-gradient(145deg, #3a6fc4, #1a3d8b)', text: '#fff' },
+  'Google':         { bg: 'linear-gradient(145deg, #3a6fc4, #1a3d8b)', text: '#fff' },
+  'Meta AI':        { bg: 'linear-gradient(145deg, #3a4fc4, #1a2d8b)', text: '#fff' },
+  'Meta':           { bg: 'linear-gradient(145deg, #3a4fc4, #1a2d8b)', text: '#fff' },
+  'Mistral':        { bg: 'linear-gradient(145deg, #7a4ac4, #4a1a8b)', text: '#fff' },
+  'xAI':            { bg: 'linear-gradient(145deg, #5a5a5a, #3a3a3a)', text: '#fff' },
+  '智谱AI':         { bg: 'linear-gradient(145deg, #c43a3a, #8b1a1a)', text: '#fff' },
+  'MiniMax':        { bg: 'linear-gradient(145deg, #c43a8b, #8b1a5a)', text: '#fff' },
+  'Kimi':           { bg: 'linear-gradient(145deg, #3aafc4, #1a6b8b)', text: '#fff' },
+  '阿里千问':       { bg: 'linear-gradient(145deg, #c47a1a, #8b4a00)', text: '#fff' },
+  '字节豆包':       { bg: 'linear-gradient(145deg, #3ac47a, #1a8b4a)', text: '#fff' },
+  'OpenClaw':       { bg: 'linear-gradient(145deg, #8b6914, #5a4008)', text: '#fff' },
 }
 
 const typeLabels: Record<string, string> = {
-  model: '🤖 模型', product: '🚀 产品', funding: '💰 融资', policy: '📋 政策', milestone: '⭐ 里程碑'
+  model: '🤖 模型', product: '🚀 产品', milestone: '⭐ 里程碑'
 }
 
-function CardContent({ event }: { event: Event }) {
+// Timeline 列表中的卡片（带展开）
+export function EventCardFull({ event }: { event: Event }) {
   const [expanded, setExpanded] = useState(false)
-  const color = companyColors[event.company] ?? 'from-gray-500 to-gray-600'
+  const color = companyColors[event.company] ?? { bg: 'linear-gradient(145deg, #7a6a5a, #5a4a3a)', text: '#fff' }
   const isHigh = event.importance === 'high'
 
   return (
     <div
       onClick={() => setExpanded(v => !v)}
-      className={`relative bg-gray-900/60 border rounded-xl p-5 cursor-pointer transition-all duration-300
-        ${isHigh
-          ? 'border-gray-700 hover:border-cyan-500/60 hover:shadow-lg hover:shadow-cyan-500/10 shadow-[0_0_15px_rgba(6,182,212,0.07)]'
-          : 'border-gray-800 hover:border-gray-600'}`}
+      className="skeu-card p-4 cursor-pointer transition-all duration-200"
+      style={isHigh ? { boxShadow: '4px 4px 12px rgba(0,0,0,0.18), -2px -2px 6px rgba(255,255,255,0.7), inset 0 1px 0 rgba(255,255,255,0.8), 0 0 0 1.5px rgba(180,140,60,0.35)' } : {}}
     >
+      {/* 左侧高亮条（重要事件） */}
       {isHigh && (
-        <div className={`absolute left-0 top-4 bottom-4 w-0.5 rounded-full bg-gradient-to-b ${color}`} />
+        <div style={{
+          position: 'absolute', left: 0, top: '12px', bottom: '12px',
+          width: '3px', borderRadius: '0 2px 2px 0',
+          background: 'linear-gradient(180deg, #c4a030, #8b6914)',
+        }} />
       )}
-      <div className="flex items-center gap-2 mb-2.5 flex-wrap">
-        <span className={`text-xs px-2.5 py-0.5 rounded-full bg-gradient-to-r ${color} text-white font-medium`}>{event.company}</span>
-        <span className="text-xs text-gray-500 px-2 py-0.5 rounded-full border border-gray-700/80">{typeLabels[event.type]}</span>
-        {isHigh && <span className="text-yellow-400 text-xs ml-auto">★ 重要</span>}
+
+      <div className="flex items-center gap-2 mb-2 flex-wrap">
+        <span style={{
+          fontSize: '11px', padding: '2px 10px', borderRadius: '20px',
+          background: color.bg, color: color.text, fontWeight: 600,
+          boxShadow: '1px 1px 3px rgba(0,0,0,0.25)',
+        }}>{event.company}</span>
+        <span style={{
+          fontSize: '11px', padding: '2px 8px', borderRadius: '20px',
+          background: 'linear-gradient(145deg, #e8e0d0, #d5cdc0)',
+          color: '#6b5a45', border: '1px solid rgba(180,160,120,0.4)',
+          boxShadow: '1px 1px 2px rgba(0,0,0,0.1)',
+        }}>{typeLabels[event.type]}</span>
+        {isHigh && <span style={{ color: '#c4a030', fontSize: '12px', marginLeft: 'auto' }}>★ 重要</span>}
       </div>
-      <h3 className="text-white font-semibold text-sm mb-1.5">{event.title}</h3>
-      <AnimatePresence initial={false}>
-        {expanded ? (
-          <motion.p
-            key="full"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="text-gray-400 text-xs leading-relaxed overflow-hidden"
-          >
-            {event.description}
-          </motion.p>
-        ) : (
-          <p className="text-gray-400 text-xs leading-relaxed line-clamp-2">{event.description}</p>
-        )}
-      </AnimatePresence>
+
+      <h3 style={{ color: '#2d1f14', fontWeight: 600, fontSize: '14px', marginBottom: '6px' }}>{event.title}</h3>
+
+      <p style={{
+        color: '#6b5a45', fontSize: '12px', lineHeight: '1.6',
+        maxHeight: expanded ? '200px' : '2.8em',
+        overflow: 'hidden',
+        transition: 'max-height 0.25s ease',
+        display: expanded ? 'block' : '-webkit-box',
+        WebkitLineClamp: expanded ? undefined : 2,
+        WebkitBoxOrient: 'vertical',
+      }}>{event.description}</p>
+
       <div className="flex items-center justify-between mt-3">
-        <p className="text-gray-600 text-xs font-mono">{event.date}</p>
-        <span className="text-gray-600 text-xs">{expanded ? '收起 ↑' : '展开 ↓'}</span>
+        <p style={{ color: '#a09080', fontSize: '11px', fontFamily: 'monospace' }}>{event.date}</p>
+        <span style={{ color: '#a09080', fontSize: '11px' }}>{expanded ? '收起 ↑' : '展开 ↓'}</span>
       </div>
     </div>
   )
 }
 
-export function EventCard({ event, index }: { event: Event; index: number }) {
-  const isLeft = index % 2 === 0
-  const dot = companyDots[event.company] ?? 'bg-gray-500'
+// CompanyView 中的小卡片
+export function EventCard({ event }: { event: Event }) {
+  const color = companyColors[event.company] ?? { bg: 'linear-gradient(145deg, #7a6a5a, #5a4a3a)', text: '#fff' }
   const isHigh = event.importance === 'high'
-  const dotSize = isHigh ? 'w-4 h-4' : 'w-3 h-3'
 
   return (
-    <>
-      {/* 桌面端：左右交替 */}
-      <div className={`relative hidden md:flex mb-8 items-start ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}>
-        <div className="w-[46%]">
-          <CardContent event={event} />
-        </div>
-        <div className="w-[8%] flex justify-center pt-5">
-          <div className={`${dotSize} rounded-full border-2 border-gray-950 z-10 ${dot} ${isHigh ? 'shadow-[0_0_8px_2px_rgba(6,182,212,0.4)]' : ''}`} />
-        </div>
-        <div className="w-[46%]" />
+    <div className="skeu-card p-3 w-52 shrink-0"
+      style={isHigh ? { boxShadow: '4px 4px 12px rgba(0,0,0,0.18), -2px -2px 6px rgba(255,255,255,0.7), inset 0 1px 0 rgba(255,255,255,0.8), 0 0 0 1.5px rgba(180,140,60,0.35)' } : {}}
+    >
+      <div className="flex items-center gap-1.5 mb-1.5">
+        <span style={{
+          width: '8px', height: '8px', borderRadius: '50%', flexShrink: 0,
+          background: color.bg, boxShadow: '1px 1px 2px rgba(0,0,0,0.2)',
+        }} />
+        <span style={{ fontSize: '10px', color: '#6b5a45' }} className="truncate">{event.company}</span>
+        {isHigh && <span style={{ color: '#c4a030', fontSize: '10px', marginLeft: 'auto' }}>★</span>}
       </div>
-
-      {/* 移动端：单列 */}
-      <div className="md:hidden flex mb-5 items-start gap-3">
-        <div className="flex flex-col items-center pt-1.5 shrink-0">
-          <div className={`${isHigh ? 'w-3.5 h-3.5' : 'w-2.5 h-2.5'} rounded-full ${dot} ${isHigh ? 'shadow-[0_0_6px_rgba(6,182,212,0.4)]' : ''}`} />
-          <div className="w-px flex-1 bg-gray-800 mt-1" />
-        </div>
-        <div className="flex-1 mb-1">
-          <CardContent event={event} />
-        </div>
-      </div>
-    </>
+      <h3 style={{ color: '#2d1f14', fontSize: '12px', fontWeight: 600, lineHeight: 1.4, marginBottom: '4px',
+        display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+        {event.title}
+      </h3>
+      <p style={{ color: '#8a7a65', fontSize: '10px', lineHeight: 1.5,
+        display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+        {event.description}
+      </p>
+      <p style={{ color: '#b0a090', fontSize: '10px', fontFamily: 'monospace', marginTop: '8px' }}>{event.date}</p>
+    </div>
   )
 }
