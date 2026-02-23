@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 const YEARS = ['2026', '2025', '2024', '2023', '2022']
-const COMPANIES = ['OpenAI','Anthropic','Google DeepMind','Meta AI','Mistral','xAI','智谱AI','MiniMax','Kimi','阿里千问','字节豆包','OpenClaw']
+const COMPANIES = ['OpenAI','Anthropic','Google DeepMind','Meta AI','Mistral','xAI','智谱AI','MiniMax','Kimi','阿里千问','字节跳动','OpenClaw']
 
 export function FilterBar({
   selectedCompany, selectedYear,
