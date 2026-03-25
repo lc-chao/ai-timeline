@@ -1287,4 +1287,13 @@ export const events: Event[] = [
     description: 'NVIDIA 在 GTC 2026 上宣布成立 Nemotron Coalition，联合全球顶级 AI 实验室（包括 Perplexity 等）共同推进开放前沿模型开发，通过共享研究、数据和算力加速全球 AI 生态创新。',
     importance: 'high',
   },
+  {
+    id: 'mianbizhineng-minicpm-o-45',
+    date: '2026-03-25',
+    company: '面壁智能',
+    type: 'model',
+    title: 'MiniCPM-o 4.5 发布',
+    description: '面壁智能发布 MiniCPM-o 4.5 全模态大模型，支持即时自由对话，仅 9B 参数实现"边看、边听、主动说"的全模态交互能力，开源发布。',
+    importance: 'high',
+  },
 ]
