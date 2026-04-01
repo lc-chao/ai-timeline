@@ -1359,4 +1359,13 @@ export const events: Event[] = [
     description: 'Cohere 发布首个语音模型 Transcribe，2B 参数的开源语音识别模型（Apache 2.0），在多项 ASR 基准上超越同类开源模型，专注转录和语音分析场景。',
     importance: 'medium',
   },
+  {
+    id: 'alibaba-qwen36-plus-preview',
+    date: '2026-03-30',
+    company: '阿里巴巴',
+    type: 'model',
+    title: 'Qwen 3.6 Plus Preview 发布',
+    description: '阿里发布 Qwen 3.6 Plus Preview，新一代混合推理架构，支持 100 万 token 上下文窗口、内置 chain-of-thought 推理和工具调用，在 OpenRouter 免费开放。',
+    importance: 'high',
+  },
 ]
