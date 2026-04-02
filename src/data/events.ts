@@ -1368,4 +1368,13 @@ export const events: Event[] = [
     description: '阿里发布 Qwen 3.6 Plus Preview，新一代混合推理架构，支持 100 万 token 上下文窗口、内置 chain-of-thought 推理和工具调用，在 OpenRouter 免费开放。',
     importance: 'high',
   },
+  {
+    id: 'google-gemini-3',
+    date: '2026-04-02',
+    company: 'Google DeepMind',
+    type: 'model',
+    title: 'Gemini 3 发布',
+    description: 'Google 发布 Gemini 3，新一代旗舰模型，指令遵循能力显著提升，工具调用和 Agent 编程能力大幅增强。',
+    importance: 'high',
+  },
 ]
