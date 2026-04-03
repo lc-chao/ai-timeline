@@ -1377,4 +1377,22 @@ export const events: Event[] = [
     description: 'Google 发布 Gemini 3，新一代旗舰模型，指令遵循能力显著提升，工具调用和 Agent 编程能力大幅增强。',
     importance: 'high',
   },
+  {
+    id: 'alibaba-qwen36-plus',
+    date: '2026-04-02',
+    company: '阿里巴巴',
+    type: 'model',
+    title: 'Qwen 3.6-Plus 正式发布',
+    description: '阿里发布 Qwen 3.6-Plus 正式版，100 万 token 上下文窗口，Agentic Coding 能力大幅增强，支持自主编码和多模态推理，面向企业级 AI 应用部署。',
+    importance: 'high',
+  },
+  {
+    id: 'google-gemma-4',
+    date: '2026-04-02',
+    company: 'Google DeepMind',
+    type: 'model',
+    title: 'Gemma 4 开源发布',
+    description: 'Google 发布 Gemma 4 开源模型系列（E2B/E4B/26B MoE/31B Dense），切换至 Apache 2.0 许可证，支持多模态和 Agent 工作流，可在手机和边缘设备本地运行。',
+    importance: 'high',
+  },
 ]
