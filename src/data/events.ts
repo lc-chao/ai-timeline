@@ -1422,4 +1422,13 @@ export const events: Event[] = [
     description: 'Cursor 发布全新 AI Agent 体验 Cursor 3，支持开发者启动独立编程 Agent 自主完成任务，直接对标 Claude Code 和 OpenAI Codex。',
     importance: 'medium',
   },
+  {
+    id: 'alibaba-wan27',
+    date: '2026-04-03',
+    company: '阿里巴巴',
+    type: 'model',
+    title: 'Wan 2.7 视频/图像生成模型发布',
+    description: '阿里通义实验室发布 Wan 2.7 系列，包含 Image 和 Video 两个版本。视频模型支持文生视频、图生视频、视频编辑、风格迁移、局部修改等全链路能力，可像编辑文档一样逐帧控制视频内容。',
+    importance: 'medium',
+  },
 ]
