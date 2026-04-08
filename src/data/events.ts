@@ -1431,4 +1431,13 @@ export const events: Event[] = [
     description: '阿里通义实验室发布 Wan 2.7 系列，包含 Image 和 Video 两个版本。视频模型支持文生视频、图生视频、视频编辑、风格迁移、局部修改等全链路能力，可像编辑文档一样逐帧控制视频内容。',
     importance: 'medium',
   },
+  {
+    id: 'anthropic-claude-mythos-preview',
+    date: '2026-04-07',
+    company: 'Anthropic',
+    type: 'model',
+    title: 'Claude Mythos Preview 发布 & Project Glasswing',
+    description: 'Anthropic 正式发布 Claude Mythos Preview，其网络安全能力被称为"行业清算时刻"。同步启动 Project Glasswing，联合 AWS、Apple、Google、Microsoft、Nvidia、CrowdStrike 等 12 家合作伙伴，将 Mythos 限定用于防御性安全研究，暂不公开发布。',
+    importance: 'high',
+  },
 ]
