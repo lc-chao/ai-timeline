@@ -1440,4 +1440,22 @@ export const events: Event[] = [
     description: 'Anthropic 正式发布 Claude Mythos Preview，其网络安全能力被称为"行业清算时刻"。同步启动 Project Glasswing，联合 AWS、Apple、Google、Microsoft、Nvidia、CrowdStrike 等 12 家合作伙伴，将 Mythos 限定用于防御性安全研究，暂不公开发布。',
     importance: 'high',
   },
+  {
+    id: 'meta-muse-spark',
+    date: '2026-04-08',
+    company: 'Meta AI',
+    type: 'model',
+    title: 'Muse Spark 发布',
+    description: 'Meta Superintelligence Labs 发布首个专有模型 Muse Spark，原生多模态推理引擎，支持 Visual Chain-of-Thought、工具调用和多 Agent 编排，定位"个人超级智能"。标志 Meta AI 战略从开源 Llama 转向专有模型路线。',
+    importance: 'high',
+  },
+  {
+    id: 'zhipu-glm-51',
+    date: '2026-04-08',
+    company: '智谱AI',
+    type: 'model',
+    title: 'GLM-5.1 开源发布',
+    description: '智谱发布新一代开源旗舰模型 GLM-5.1，号称全球最强开源模型，能在单次任务中自主持续工作超过 8 小时，自主规划、执行并交付工程级成果，代码能力和长程任务能力大幅提升。',
+    importance: 'high',
+  },
 ]
