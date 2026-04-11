@@ -1458,4 +1458,22 @@ export const events: Event[] = [
     description: '智谱发布新一代开源旗舰模型 GLM-5.1，号称全球最强开源模型，能在单次任务中自主持续工作超过 8 小时，自主规划、执行并交付工程级成果，代码能力和长程任务能力大幅提升。',
     importance: 'high',
   },
+  {
+    id: 'google-gemini-notebooks',
+    date: '2026-04-08',
+    company: 'Google DeepMind',
+    type: 'product',
+    title: 'Gemini Notebooks 功能发布',
+    description: 'Google 为 Gemini 添加 Notebooks 功能，用户可将相关对话、文件和文档按项目组织在一起，并与 NotebookLM 无缝同步，将 AI 助手从单次对话升级为项目级知识管理工具。',
+    importance: 'medium',
+  },
+  {
+    id: 'anthropic-managed-agents',
+    date: '2026-04-10',
+    company: 'Anthropic',
+    type: 'product',
+    title: 'Claude Managed Agents 发布',
+    description: 'Anthropic 发布 Claude Managed Agents（公测版），提供开箱即用的 AI Agent 云端基础设施，包含沙箱环境、权限管理、状态管理和错误恢复，让企业部署 Agent 的速度提升 10 倍。Notion、Rakuten、Sentry、Asana 等已接入使用。',
+    importance: 'high',
+  },
 ]
