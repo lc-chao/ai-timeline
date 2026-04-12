@@ -1476,4 +1476,13 @@ export const events: Event[] = [
     description: 'Anthropic 发布 Claude Managed Agents（公测版），提供开箱即用的 AI Agent 云端基础设施，包含沙箱环境、权限管理、状态管理和错误恢复，让企业部署 Agent 的速度提升 10 倍。Notion、Rakuten、Sentry、Asana 等已接入使用。',
     importance: 'high',
   },
+  {
+    id: 'anthropic-mythos',
+    date: '2026-04-10',
+    company: 'Anthropic',
+    type: 'model',
+    title: 'Anthropic Mythos 披露（未公开发布）',
+    description: 'Anthropic 披露新模型 Mythos，因其网络安全漏洞挖掘与利用能力过于强大，被认为风险过高而未向公众发布，仅向苹果、微软、谷歌等关键基础设施企业提供访问。此事件引发美国财政部长 Bessent 与美联储主席 Powell 紧急召集华尔街 CEO 开会讨论 AI 网络安全风险。',
+    importance: 'high',
+  },
 ]
