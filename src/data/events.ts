@@ -1485,4 +1485,13 @@ export const events: Event[] = [
     description: 'Anthropic 披露新模型 Mythos，因其网络安全漏洞挖掘与利用能力过于强大，被认为风险过高而未向公众发布，仅向苹果、微软、谷歌等关键基础设施企业提供访问。此事件引发美国财政部长 Bessent 与美联储主席 Powell 紧急召集华尔街 CEO 开会讨论 AI 网络安全风险。',
     importance: 'high',
   },
+  {
+    id: 'anthropic-project-glasswing',
+    date: '2026-04-13',
+    company: 'Anthropic',
+    type: 'product',
+    title: 'Project Glasswing 发布',
+    description: 'Anthropic 联合 AWS、Apple、Google、Microsoft、NVIDIA、Cisco 等12家顶级科技公司发布 Project Glasswing，利用 Claude Mythos2 Preview 模型的漏洞挖掘能力主动防御全球关键软件基础设施。Anthropic 承诺提供最高 1 亿美元算力额度，并向 40+ 家关键基础设施组织开放访问权限。',
+    importance: 'high',
+  },
 ]
