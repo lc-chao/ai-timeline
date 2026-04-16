@@ -1494,4 +1494,13 @@ export const events: Event[] = [
     description: 'Anthropic 联合 AWS、Apple、Google、Microsoft、NVIDIA、Cisco 等12家顶级科技公司发布 Project Glasswing，利用 Claude Mythos2 Preview 模型的漏洞挖掘能力主动防御全球关键软件基础设施。Anthropic 承诺提供最高 1 亿美元算力额度，并向 40+ 家关键基础设施组织开放访问权限。',
     importance: 'high',
   },
+  {
+    id: 'openai-gpt54-cyber',
+    date: '2026-04-14',
+    company: 'OpenAI',
+    type: 'model',
+    title: 'GPT-5.4-Cyber 发布',
+    description: 'OpenAI 发布 GPT-5.4-Cyber，基于 GPT-5.4 针对防御性网络安全场景微调的专用模型。通过 Trusted Access for Cyber 分层验证计划向安全研究人员开放，支持漏洞研究、代码审计和逆向工程等任务，被视为对 Anthropic Mythos 的直接回应。',
+    importance: 'high',
+  },
 ]
