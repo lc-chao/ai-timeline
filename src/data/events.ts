@@ -1503,4 +1503,13 @@ export const events: Event[] = [
     description: 'OpenAI 发布 GPT-5.4-Cyber，基于 GPT-5.4 针对防御性网络安全场景微调的专用模型。通过 Trusted Access for Cyber 分层验证计划向安全研究人员开放，支持漏洞研究、代码审计和逆向工程等任务，被视为对 Anthropic Mythos 的直接回应。',
     importance: 'high',
   },
+  {
+    id: 'anthropic-claude-opus-4-7',
+    date: '2026-04-16',
+    company: 'Anthropic',
+    type: 'model',
+    title: 'Claude Opus 4.7 发布',
+    description: 'Anthropic 发布 Claude Opus 4.7，旗舰模型升级，在编程、视觉和自我验证能力上显著提升，支持 1M 上下文窗口和 128K 输出。定价与 Opus 4.6 持平（$5/$25 per 1M tokens）。Anthropic 坦言其能力不及未公开发布的 Mythos。',
+    importance: 'high',
+  },
 ]
