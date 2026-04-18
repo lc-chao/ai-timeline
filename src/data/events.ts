@@ -1512,4 +1512,13 @@ export const events: Event[] = [
     description: 'Anthropic 发布 Claude Opus 4.7，旗舰模型升级，在编程、视觉和自我验证能力上显著提升，支持 1M 上下文窗口和 128K 输出。定价与 Opus 4.6 持平（$5/$25 per 1M tokens）。Anthropic 坦言其能力不及未公开发布的 Mythos。',
     importance: 'high',
   },
+  {
+    id: 'anthropic-claude-design',
+    date: '2026-04-17',
+    company: 'Anthropic',
+    type: 'product',
+    title: 'Claude Design 发布',
+    description: 'Anthropic Labs 发布 Claude Design，基于 Claude Opus 4.7 的视觉创作产品，支持与 Claude 协作生成设计稿、原型、幻灯片、单页文档等视觉内容。发布当日 Figma 股价下跌逾 6%。',
+    importance: 'high',
+  },
 ]
