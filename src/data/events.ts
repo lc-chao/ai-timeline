@@ -1521,4 +1521,22 @@ export const events: Event[] = [
     description: 'Anthropic Labs 发布 Claude Design，基于 Claude Opus 4.7 的视觉创作产品，支持与 Claude 协作生成设计稿、原型、幻灯片、单页文档等视觉内容。发布当日 Figma 股价下跌逾 6%。',
     importance: 'high',
   },
+  {
+    id: 'moonshot-kimi-k2-6',
+    date: '2026-04-21',
+    company: 'Moonshot AI',
+    type: 'model',
+    title: 'Kimi K2.6 开源发布',
+    description: 'Moonshot AI 开源发布 Kimi K2.6，Kimi K2.5 的继任者，定位为长程 Agent 编程和工具调用的前沿开放权重模型，与 Claude Opus 4.7、GPT-5.4、Gemini 3 直接竞争。支持通过 Kimi.com、开发者 API、Kimi Code 和 Ollama 访问。亮点：用 Zig 语言在 12 小时内完成 Mac 本地推理优化，执行超 4000 次工具调用。',
+    importance: 'high',
+  },
+  {
+    id: 'openai-images-2',
+    date: '2026-04-21',
+    company: 'OpenAI',
+    type: 'model',
+    title: 'ChatGPT Images 2.0 发布',
+    description: 'OpenAI 发布 ChatGPT Images 2.0 图像生成模型，在文字渲染能力上取得显著突破，能够在生成图像中准确呈现文本内容，被 TechCrunch 评价为"令人惊喜地擅长生成文字"。',
+    importance: 'medium',
+  },
 ]
