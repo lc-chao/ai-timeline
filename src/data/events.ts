@@ -1539,4 +1539,13 @@ export const events: Event[] = [
     description: 'OpenAI 发布 ChatGPT Images 2.0 图像生成模型，在文字渲染能力上取得显著突破，能够在生成图像中准确呈现文本内容，被 TechCrunch 评价为"令人惊喜地擅长生成文字"。',
     importance: 'medium',
   },
+  {
+    id: 'google-gemini-enterprise-agent-platform',
+    date: '2026-04-22',
+    company: 'Google DeepMind',
+    type: 'product',
+    title: 'Gemini Enterprise Agent Platform 发布',
+    description: 'Google 在 Cloud Next 2026 大会上发布 Gemini Enterprise Agent Platform，提供构建、扩展、治理和优化企业 AI Agent 的完整平台，同时宣布与 Apple 合作基于 Gemini 技术开发下一代 Apple Foundation Models，并发布第八代 TPU 芯片（TPU 8t/8i）。',
+    importance: 'high',
+  },
 ]
