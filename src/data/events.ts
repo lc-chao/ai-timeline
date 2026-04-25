@@ -1548,4 +1548,13 @@ export const events: Event[] = [
     description: 'Google 在 Cloud Next 2026 大会上发布 Gemini Enterprise Agent Platform，提供构建、扩展、治理和优化企业 AI Agent 的完整平台，同时宣布与 Apple 合作基于 Gemini 技术开发下一代 Apple Foundation Models，并发布第八代 TPU 芯片（TPU 8t/8i）。',
     importance: 'high',
   },
+  {
+    id: 'deepseek-v4-preview',
+    date: '2026-04-24',
+    company: 'DeepSeek',
+    type: 'model',
+    title: 'DeepSeek V4 预览版发布',
+    description: 'DeepSeek 发布旗舰模型 DeepSeek V4 预览版，距 R1 发布逾一年。定位为最强开源平台，直接挑战 OpenAI 和 Anthropic，以极具竞争力的价格再度震撼全球 AI 市场。',
+    importance: 'high',
+  },
 ]
