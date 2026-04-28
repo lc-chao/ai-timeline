@@ -1557,4 +1557,13 @@ export const events: Event[] = [
     description: 'DeepSeek 发布旗舰模型 DeepSeek V4 预览版，距 R1 发布逾一年。定位为最强开源平台，直接挑战 OpenAI 和 Anthropic，以极具竞争力的价格再度震撼全球 AI 市场。',
     importance: 'high',
   },
+  {
+    id: 'openai-gpt-5-5',
+    date: '2026-04-23',
+    company: 'OpenAI',
+    type: 'model',
+    title: 'GPT-5.5 发布',
+    description: 'OpenAI 发布 GPT-5.5（代号 Spud），定位为"最智能、最直觉化"的旗舰模型，在 Terminal-Bench 2.0（82.7%）和 FrontierMath 等基准上超越前代。向 Plus、Pro、Business、Enterprise 用户推出，并于 4 月 24 日开放 API 访问。',
+    importance: 'high',
+  },
 ]
