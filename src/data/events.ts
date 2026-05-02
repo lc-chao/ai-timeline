@@ -1566,4 +1566,13 @@ export const events: Event[] = [
     description: 'OpenAI 发布 GPT-5.5（代号 Spud），定位为"最智能、最直觉化"的旗舰模型，在 Terminal-Bench 2.0（82.7%）和 FrontierMath 等基准上超越前代。向 Plus、Pro、Business、Enterprise 用户推出，并于 4 月 24 日开放 API 访问。',
     importance: 'high',
   },
+  {
+    id: 'mistral-medium-3-5',
+    date: '2026-05-02',
+    company: 'Mistral AI',
+    type: 'model',
+    title: 'Mistral Medium 3.5 发布',
+    description: 'Mistral AI 发布旗舰模型 Mistral Medium 3.5，128B 稠密模型，将指令跟随、推理与代码能力融合为一体，以修改版 MIT 协议开放权重。API 定价 $1.50/M 输入、$7.50/M 输出。同步发布 Vibe 远程编程 Agent 和 Le Chat Work 模式。',
+    importance: 'high',
+  },
 ]
