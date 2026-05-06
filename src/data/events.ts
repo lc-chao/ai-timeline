@@ -1584,4 +1584,13 @@ export const events: Event[] = [
     description: 'xAI 发布 Grok 4.3 大语言模型，是 Grok 4.2 的继任者，在第三方基准测试中性能显著提升。同步推出基于 Web 的语音克隆套件，面向开发者保持激进定价策略，持续挑战 OpenAI 和 Anthropic。',
     importance: 'medium',
   },
+  {
+    id: 'openai-gpt-5-5-instant',
+    date: '2026-05-05',
+    company: 'OpenAI',
+    type: 'model',
+    title: 'GPT-5.5 Instant 发布',
+    description: 'OpenAI 发布 GPT-5.5 Instant，取代 GPT-5.3 Instant 成为 ChatGPT 新默认模型。在保持低延迟的同时，显著降低法律、医疗、金融等敏感领域的幻觉率。AIME 2025 数学测试得分 81.2（前代 65.4），MMMU-Pro 多模态推理 76（前代 69.2）。支持跨历史对话、文件和 Gmail 的个性化搜索，面向 Plus/Pro 用户开放。',
+    importance: 'high',
+  },
 ]
