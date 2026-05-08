@@ -1593,4 +1593,13 @@ export const events: Event[] = [
     description: 'OpenAI 发布 GPT-5.5 Instant，取代 GPT-5.3 Instant 成为 ChatGPT 新默认模型。在保持低延迟的同时，显著降低法律、医疗、金融等敏感领域的幻觉率。AIME 2025 数学测试得分 81.2（前代 65.4），MMMU-Pro 多模态推理 76（前代 69.2）。支持跨历史对话、文件和 Gmail 的个性化搜索，面向 Plus/Pro 用户开放。',
     importance: 'high',
   },
+  {
+    id: 'google-gemini-3-1-flash-lite-ga',
+    date: '2026-05-07',
+    company: 'Google DeepMind',
+    type: 'model',
+    title: 'Gemini 3.1 Flash-Lite 正式版发布',
+    description: 'Google 发布 Gemini 3.1 Flash-Lite 正式版（GA），针对速度、规模和成本效率优化，同步宣布 preview 版本将于 5 月 11 日弃用。',
+    importance: 'medium',
+  },
 ]
