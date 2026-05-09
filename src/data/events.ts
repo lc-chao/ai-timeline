@@ -1602,4 +1602,13 @@ export const events: Event[] = [
     description: 'Google 发布 Gemini 3.1 Flash-Lite 正式版（GA），针对速度、规模和成本效率优化，同步宣布 preview 版本将于 5 月 11 日弃用。',
     importance: 'medium',
   },
+  {
+    id: 'openai-gpt-5-5-cyber',
+    date: '2026-05-08',
+    company: 'OpenAI',
+    type: 'model',
+    title: 'GPT-5.5-Cyber 发布',
+    description: 'OpenAI 发布 GPT-5.5-Cyber，GPT-5.5 的网络安全专项变体，以限量预览形式向经过审核的网络安全团队开放，专为保护关键基础设施的防御者提供更宽松的安全工作流支持。',
+    importance: 'medium',
+  },
 ]
